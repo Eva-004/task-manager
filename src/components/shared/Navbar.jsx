@@ -1,4 +1,5 @@
 
+import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 
@@ -19,7 +20,9 @@ const Navbar = () => {
               <li><Link href={'/'}>Add Task</Link></li>
             </ul>
           </div>
-          <Link href={'/'}><h1 className='text-sm sm:text-xl md:text-4xl font-bold text-blue-700'>Task Manager</h1></Link>
+          <Link href={'/'} className='flex gap-2  justify-center items-center'>
+          <Image src={'/images/logo.png'} width={30} height={30} alt='logo' className='object-cover mt-2 '/>
+          <h1 className='text-sm sm:text-xl md:text-4xl font-bold text-blue-700'>Task Manager</h1></Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
