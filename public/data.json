@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "title": "Build Landing Page",
+    "description": "Create a responsive landing page for the new product.",
+    "priority": "High",
+    "status": "In Progress",
+    "dueDate": "2026-08-18"
+  },
+  {
+    "id": 2,
+    "title": "Design Dashboard UI",
+    "description": "Design the main dashboard with task cards, filters, and statistics.",
+    "priority": "Medium",
+    "status": "To Do",
+    "dueDate": "2026-08-20"
+  },
+  {
+    "id": 3,
+    "title": "Fix Login Bug",
+    "description": "Investigate and fix the authentication issue on the login page.",
+    "priority": "High",
+    "status": "Done",
+    "dueDate": "2026-08-14"
+  },
+  {
+    "id": 4,
+    "title": "Write API Documentation",
+    "description": "Document all available API endpoints and their request parameters.",
+    "priority": "Low",
+    "status": "To Do",
+    "dueDate": "2026-08-22"
+  },
+  {
+    "id": 5,
+    "title": "Implement Search Feature",
+    "description": "Add case-insensitive task search functionality by title.",
+    "priority": "Medium",
+    "status": "In Progress",
+    "dueDate": "2026-08-19"
+  },
+  {
+    "id": 6,
+    "title": "Add Task Filtering",
+    "description": "Allow users to filter tasks based on their current status.",
+    "priority": "Medium",
+    "status": "Done",
+    "dueDate": "2026-08-15"
+  },
+  {
+    "id": 7,
+    "title": "Update User Profile",
+    "description": "Add profile editing functionality for users.",
+    "priority": "Low",
+    "status": "To Do",
+    "dueDate": "2026-08-16"
+  },
+  {
+    "id": 8,
+    "title": "Test Task Creation",
+    "description": "Test form validation and task creation with different inputs.",
+    "priority": "High",
+    "status": "In Progress",
+    "dueDate": "2026-08-17"
+  },
+  {
+    "id": 9,
+    "title": "Improve Mobile Layout",
+    "description": "Make the task board responsive for mobile and tablet devices.",
+    "priority": "Medium",
+    "status": "To Do",
+    "dueDate": "2026-08-25"
+  },
+  {
+    "id": 10,
+    "title": "Deploy Task Board",
+    "description": "Deploy the completed task board application and verify production build.",
+    "priority": "High",
+    "status": "Done",
+    "dueDate": "2026-08-16"
+  }
+]

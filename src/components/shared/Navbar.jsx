@@ -7,8 +7,8 @@ import Link from 'next/link';
 const Navbar = () => {
   const links = <>
     <li><NavLink href={'/'}>Home</NavLink></li>
-    <li><NavLink href={'/'}>All Task</NavLink></li>
-    <li><NavLink href={'/'}>Add Task</NavLink></li>
+    <li><NavLink href={'/tasks'}>All Task</NavLink></li>
+    <li><NavLink href={'/add-task'}>Add Task</NavLink></li>
   </>
   return (
     <div className='bg-base-100 shadow-sm'>
