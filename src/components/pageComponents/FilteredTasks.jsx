@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter, useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const FilteredTasks = () => {
   const taskStatuses = [
@@ -17,34 +17,23 @@ const FilteredTasks = () => {
     searchParams.get("status") || ""
   );
 
-  const [tasks, setTasks] = useState([]);
-
- 
-  useEffect(() => {
-    fetch("/data.json")
-      .then((res) => res.json())
-      .then((data) => {
-        setTasks(data);
-      })
-      .catch((error) => {
-        console.error("Failed to fetch tasks:", error);
-      });
-  }, []);
-
   const handleFilter = (key) => {
-    const value = String(key);
-
-    setSelectedStatus(value);
-
     if (key === "all") {
-      router.push("/");
-    } else {
-      router.push(`/?status=${value}`);
+      setSelectedStatus("");
+      router.push("/tasks");
+      return;
     }
+
+    setSelectedStatus(key);
+
+    const params = new URLSearchParams(searchParams.toString());
+    params.set("status", key);
+
+    router.push(`/tasks?${params.toString()}`);
   };
 
   return (
-    <div >
+    <div>
       <div className="dropdown dropdown-start">
         <div
           tabIndex={0}
@@ -56,9 +45,8 @@ const FilteredTasks = () => {
 
         <ul
           tabIndex="-1"
-          className="dropdown-content menu bg-base-100 rounded-box z-40  p-2 shadow-sm"
+          className="dropdown-content menu bg-base-100 rounded-box z-40 p-2 shadow-sm"
         >
-       
           <li
             onClick={() => handleFilter("all")}
             className={
@@ -67,10 +55,9 @@ const FilteredTasks = () => {
                 : ""
             }
           >
-            <a>All Tasks</a>
+            <span>All Tasks</span>
           </li>
 
-          
           {taskStatuses.map((status) => (
             <li
               key={status.key}
@@ -81,7 +68,7 @@ const FilteredTasks = () => {
                   : ""
               }
             >
-              <a>{status.label}</a>
+              <span>{status.label}</span>
             </li>
           ))}
         </ul>
