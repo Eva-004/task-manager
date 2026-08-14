@@ -1,5 +1,6 @@
 import { Card } from "@heroui/react";
 import React from "react";
+import { FiEdit2, FiTrash2 } from "react-icons/fi";
 
 const TaskCard = ({ task }) => {
   const getStatusBadge = (status) => {
@@ -37,7 +38,7 @@ const TaskCard = ({ task }) => {
         
         <div className="mt-5 flex flex-col gap-3">
 
-          {/* Status */}
+          
           <div className="flex items-center justify-between">
             <span className="font-medium">Status</span>
 
@@ -64,6 +65,23 @@ const TaskCard = ({ task }) => {
             </span>
           </div>
 
+        </div>
+        <div className="mt-auto pt-5 flex gap-3">
+          <button
+            className="btn btn-sm btn-outline btn-primary flex-1"
+           
+          >
+            <FiEdit2 size={16} />
+            Edit
+          </button>
+
+          <button
+            className="btn btn-sm btn-outline btn-error flex-1"
+            
+          >
+            <FiTrash2 size={16} />
+            Delete
+          </button>
         </div>
       </div>
     </Card>

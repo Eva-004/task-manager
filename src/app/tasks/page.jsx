@@ -1,16 +1,38 @@
+'use client'
 import TaskCard from '@/components/cards/TaskCard';
 import FilteredTasks from '@/components/pageComponents/FilteredTasks';
 import SearchBar from '@/components/pageComponents/SearchBar';
-import React from 'react';
+import { useSearchParams } from 'next/navigation';
+import React, { useEffect, useState } from 'react';
 
-const AllTask = async ({ searchParams }) => {
-     const params = await searchParams;
-    const search = params?.search || "";
-    const status = params?.status || "";
+const AllTask =  () => {
+     const searchParams = useSearchParams();
 
-    const res = await fetch("http://localhost:3000/data.json");
-    const data = await res.json();
-    const filteredTasks = data.filter((task) => {
+  const search = searchParams.get("search") || "";
+  const status = searchParams.get("status") || "";
+
+  const [tasks, setTasks] = useState([]);
+
+  useEffect(() => {
+    const loadTasks = async () => {
+      const storedTasks = localStorage.getItem("tasks");
+
+      if (storedTasks) {
+        setTasks(JSON.parse(storedTasks));
+        return;
+      }
+
+      const res = await fetch("/data.json");
+      const data = await res.json();
+
+      localStorage.setItem("tasks", JSON.stringify(data));
+      setTasks(data);
+    };
+
+    loadTasks();
+  }, []);
+
+  const filteredTasks = tasks.filter((task) => {
     const matchesSearch = task.title
       .toLowerCase()
       .includes(search.toLowerCase());
