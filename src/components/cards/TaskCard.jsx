@@ -1,8 +1,10 @@
 import { Card } from "@heroui/react";
 import React from "react";
 import { FiEdit2, FiTrash2 } from "react-icons/fi";
+import EditTask from "../pageComponents/EditTask";
+import DeleteTask from "../pageComponents/DeleteTask";
 
-const TaskCard = ({ task }) => {
+const TaskCard = ({ task ,handleUpdate,handleDelete}) => {
   const getStatusBadge = (status) => {
     if (status === "To Do") {
       return "badge badge-info";
@@ -66,22 +68,10 @@ const TaskCard = ({ task }) => {
           </div>
 
         </div>
-        <div className="mt-auto pt-5 flex gap-3">
-          <button
-            className="btn btn-sm btn-outline btn-primary flex-1"
-           
-          >
-            <FiEdit2 size={16} />
-            Edit
-          </button>
+        <div className="mt-auto pt-5 flex justify-between gap-3">
+          <EditTask task={task} handleUpdate={handleUpdate} />
 
-          <button
-            className="btn btn-sm btn-outline btn-error flex-1"
-            
-          >
-            <FiTrash2 size={16} />
-            Delete
-          </button>
+          <DeleteTask task={task} handleDelete={handleDelete}/>
         </div>
       </div>
     </Card>
