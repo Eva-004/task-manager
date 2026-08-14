@@ -1,9 +1,15 @@
 
 import Image from 'next/image';
-import Link from 'next/link';
 import React from 'react';
+import NavLink from './NavLink';
+import Link from 'next/link';
 
 const Navbar = () => {
+  const links = <>
+    <li><NavLink href={'/'}>Home</NavLink></li>
+    <li><NavLink href={'/'}>All Task</NavLink></li>
+    <li><NavLink href={'/'}>Add Task</NavLink></li>
+  </>
   return (
     <div className='bg-base-100 shadow-sm'>
       <div className="navbar w-11/12 mx-auto ">
@@ -15,20 +21,16 @@ const Navbar = () => {
             <ul
               tabIndex="-1"
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-              <li><Link href={'/'}>Home</Link></li>
-              <li><Link href={'/'}>All Task</Link></li>
-              <li><Link href={'/'}>Add Task</Link></li>
+               {links}
             </ul>
           </div>
           <Link href={'/'} className='flex gap-2  justify-center items-center'>
-          <Image src={'/images/logo.png'} width={30} height={30} alt='logo' className='object-cover mt-2 '/>
-          <h1 className='text-sm sm:text-xl md:text-4xl font-bold text-blue-700'>Task Manager</h1></Link>
+            <Image src={'/images/logo.png'} width={30} height={30} alt='logo' className='object-cover mt-2 ' />
+            <h1 className='text-sm sm:text-xl md:text-4xl font-bold text-blue-700'>Task Manager</h1></Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
-            <li><Link href={'/'}>Home</Link></li>
-            <li><Link href={'/'}>All Task</Link></li>
-            <li><Link href={'/'}>Add Task</Link></li>
+            {links}
 
           </ul>
         </div>
