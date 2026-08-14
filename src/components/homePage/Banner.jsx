@@ -1,11 +1,34 @@
+'use client'
+import Link from "next/link";
+import { useEffect, useState } from "react";
 
 
 const Banner = () => {
   
+   const [tasks, setTasks] = useState([]);
+
+  useEffect(() => {
+    const storedTasks = localStorage.getItem("tasks");
+
+    if (storedTasks) {
+      setTasks(JSON.parse(storedTasks));
+    }
+  }, []);
+
+  const total = tasks.length;
+
+  const progress = tasks.filter(
+    (task) => task.status === "In Progress"
+  ).length;
+
+  const done = tasks.filter(
+    (task) => task.status === "Done"
+  ).length;
+
   const stats = [
-    { label: 'Total', count: 12 },
-    { label: 'Progress', count: 4 },
-    { label: 'Done', count: 6 },
+    { label: "Total", count: total },
+    { label: "Progress", count: progress },
+    { label: "Done", count: done },
   ];
 
   return (
@@ -23,9 +46,9 @@ const Banner = () => {
 
         
         <div className="pt-2">
-          <button className="bg-blue-700 hover:bg-blue-800 cursor-pointer text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+          <Link href={'/add-task'}><button  className="bg-blue-700 hover:bg-blue-800 cursor-pointer text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
             + Create New Task
-          </button>
+          </button></Link>
         </div>
 
         
